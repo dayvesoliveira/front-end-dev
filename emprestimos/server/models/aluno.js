@@ -1,5 +1,6 @@
 /*!
  * Module dependencies
+ * @see https://be-mean.gitbooks.io/be-mean-node-js/content/mongoose.html
  */
 
 var mongoose    = require("mongoose"),
