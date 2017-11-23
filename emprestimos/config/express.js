@@ -7,7 +7,7 @@ app.use(express.static('./client'));
 app.use(bodyParser.json());
 
 
-consign({cwd: 'server'})
+consign({cwd: 'backend'})
 	.include('models')	
 	.then('api')
 	.then('routes')
