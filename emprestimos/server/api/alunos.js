@@ -44,4 +44,5 @@ api.atualiza = (req, res) =>{
     res.sendStatus(200);
 };
 
+
 module.exports = api;

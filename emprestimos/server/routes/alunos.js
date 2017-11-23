@@ -1,6 +1,5 @@
 
 // testes: http://localhost:3000/api/alunos
-
 module.exports = (app) => {
 
     var url_api = '/api/alunos',

@@ -3,7 +3,6 @@
  * @see https://be-mean.gitbooks.io/be-mean-node-js/content/mongoose.html
  *      http://nomadev.com.br/mongodb-remodelagem-do-relacional-para-o-mongodb/
  */
-
 let mongoose    = require("mongoose"),
     Schema      = mongoose.Schema;
 

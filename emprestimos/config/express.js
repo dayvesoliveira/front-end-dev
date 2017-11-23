@@ -6,6 +6,7 @@ var express 	= require('express'),
 app.use(express.static('./client'));
 app.use(bodyParser.json());
 
+
 consign({cwd: 'server'})
 	.include('models')	
 	.then('api')
