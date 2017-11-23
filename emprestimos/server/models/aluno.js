@@ -20,12 +20,12 @@ let schemaAluno = new Schema(_schema);
 let Model = mongoose.model('Aluno', schemaAluno);
 
 /* 
-*/
 let model = new Model({nome:'Dayves'});
 model.save((err, data) => {
   return ((err) ? console.log('ERRO: ', err) : console.log('Inseriu: ', data))
 }); 
 
+*/
 
 
 console.log(schemaAluno);

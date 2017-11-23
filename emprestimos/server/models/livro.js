@@ -19,8 +19,7 @@ let mongoose    = require("mongoose"),
   "aluguel":  {
       "aluno_id": { type: String, require: true},
       "nome" :      String,
-      "sobrenome" : String,
-      "created_at": { type: Date, default: Date.now }
+      "sobrenome" : String
   },
   "created_at":   { type: Date,   default: Date.now }
 };
@@ -29,11 +28,12 @@ let schemaLivro = new Schema(_schema);
 
 let Model = mongoose.model('Livro', schemaLivro);
 
-/*  */
+/*  
+
 let model = new Model({"titulo" : "O Principe", "autor" : "Nicolau Maquiavel" });
 model.save((err, data) => {
   return ((err) ? console.log('ERRO: ', err) : console.log('Inseriu: ', data))
 });
-
+*/
 
 console.log(schemaLivro);

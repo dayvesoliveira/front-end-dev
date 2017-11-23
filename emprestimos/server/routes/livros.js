@@ -17,6 +17,6 @@ module.exports = (app) => {
         .delete(api.removePorId)
         .put(api.atualiza);
     
-/*      app.route(`${url_api}/:id/emprestimo`)
-        .put(api.updateEmprestimo); */
+     app.route(`/api/emprestimos/livros`)
+        .get(api.buscarEmprestimos);
 };

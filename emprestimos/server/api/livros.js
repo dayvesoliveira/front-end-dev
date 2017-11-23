@@ -41,8 +41,8 @@ api.atualiza = (req, res) =>{
                 (error) => res.status(500).json(error));
 };
 
-api.buscarEmprestimos = ()=>{
-    model.find({'aluguel':{$exists: true}})
+api.buscarEmprestimos = (req, res)=>{
+    model.find({ 'aluguel': {$exists: true} })
          .then( (data)=> res.json(data),
                 (error) => res.status(500).json(error)
          );
