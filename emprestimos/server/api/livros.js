@@ -1,14 +1,13 @@
 let mongoose = require('mongoose');
-let model    = mongoose.model('Aluno');
+let model    = mongoose.model('Livro');
 let api      = {};
-
 
 /**
   DeprecationWarning: Mongoose: mpromise (mongoose's default promise library) is deprecated, 
   plug in your own promise library instead: http://mongoosejs.com/docs/promises.html.
  */
 
-//@see http://localhost:3000/api/alunos
+//@see http://localhost:3000/api/livros
 api.lista = (req, res) => {
     model.find()
          .then((data)=> res.json(data),
@@ -16,7 +15,7 @@ api.lista = (req, res) => {
               );
 };
 
-// @see http://localhost:3000/api/alunos/5a161890c79c93250cc56f9d
+// @see http://localhost:3000/api/livros/5a161890c79c93250cc56f9d
 api.buscaPorId = (req, res) => {
     model.findById(req.params.id)
          .then((data)=> res.json(data),
@@ -37,9 +36,16 @@ api.adiciona = (req, res) =>{
 };
 
 api.atualiza = (req, res) =>{
-	// TODO IMPLEMENTAR
-    res.sendStatus(200);
+    model.update({_id: req.params.id}, {$set: req.body})
+         .then( (data)=> res.json(data),
+                (error) => res.status(500).json(error));
 };
 
+api.buscarEmprestimos = ()=>{
+    model.find({'aluguel':{$exists: true}})
+         .then( (data)=> res.json(data),
+                (error) => res.status(500).json(error)
+         );
+};
 
 module.exports = api;

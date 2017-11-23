@@ -1,9 +1,9 @@
 
-// testes: http://localhost:3000/api/alunos
+// testes: http://localhost:3000/api/livros
 module.exports = (app) => {
 
-    var url_api = '/api/alunos',
-        api     = app.api.alunos;
+    var url_api = '/api/livros',
+        api     = app.api.livros;
 
     app.route( url_api )
        .get(api.lista)
