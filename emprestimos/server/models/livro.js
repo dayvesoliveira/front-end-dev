@@ -6,8 +6,7 @@
 
 
 let mongoose    = require("mongoose"),
-    Schema      = mongoose.Schema,
-    alunoSchema = require('./aluno');
+    Schema      = mongoose.Schema;
 
 /**
  * Livro schema
@@ -34,6 +33,7 @@ let model = new Model({"titulo" : "O Principe", "autor" : "Nicolau Maquiavel" })
 model.save((err, data) => {
   return ((err) ? console.log('ERRO: ', err) : console.log('Inseriu: ', data))
 });
+
 */
 
 console.log(schemaLivro);
