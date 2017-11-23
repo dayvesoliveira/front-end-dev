@@ -17,6 +17,7 @@ let mongoose    = require("mongoose"),
   "titulo" :      { type: String, require: true}, 
   "autor" :       { type: String, require: false },
   "aluguel":  {
+      "aluno_id": { type: String, require: true},
       "nome" :      String,
       "sobrenome" : String,
       "created_at": { type: Date, default: Date.now }
