@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
-  "author": "Dyves Oliveira",
+  "author": "Dayves Oliveira",
   "license": "ISC",
   "dependencies": {
     "consign": "^0.1.6",
