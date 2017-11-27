@@ -3,29 +3,27 @@
  * @see https://be-mean.gitbooks.io/be-mean-node-js/content/mongoose.html
  *      http://nomadev.com.br/mongodb-remodelagem-do-relacional-para-o-mongodb/
  */
-
-
-let mongoose    = require("mongoose"),
-    Schema      = mongoose.Schema;
+import mongoose from 'mongoose';
 
 /**
  * Livro schema
  */
+let schemaLivro = new mongoose.Schema({ 
+    "titulo" :      { type: String, require: true}, 
+    "autor" :       { type: String, require: false },
+    "aluguel":  {
+        "aluno_id": { type: String, require: true},
+        "nome" :      String,
+        "sobrenome" : String
+    },
+    "created_at":   { type: Date,   default: Date.now }
+});
 
- let _schema = { 
-  "titulo" :      { type: String, require: true}, 
-  "autor" :       { type: String, require: false },
-  "aluguel":  {
-      "aluno_id": { type: String, require: true},
-      "nome" :      String,
-      "sobrenome" : String
-  },
-  "created_at":   { type: Date,   default: Date.now }
-};
+const ModelLivro = mongoose.model('Livro', schemaLivro);
 
-let schemaLivro = new Schema(_schema);
+//console.log(schemaLivro);
 
-let Model = mongoose.model('Livro', schemaLivro);
+export default ModelLivro;
 
 /*  
 
@@ -36,4 +34,3 @@ model.save((err, data) => {
 
 */
 
-console.log(schemaLivro);

@@ -2,22 +2,24 @@
  * Module dependencies
  * @see https://be-mean.gitbooks.io/be-mean-node-js/content/mongoose.html
  *      http://nomadev.com.br/mongodb-remodelagem-do-relacional-para-o-mongodb/
+ * 
  */
-let mongoose    = require("mongoose"),
-    Schema      = mongoose.Schema;
+import mongoose from 'mongoose';
 
 /**
  * Aluno schema
  */
-
- let _schema = { 
+const schemaAluno = new mongoose.Schema({ 
   "nome" :      { type: String, require: true}, 
   "sobrenome" : { type: String, require: false },
   "created_at": { type: Date, default: Date.now }
-};
+});
 
-let schemaAluno = new Schema(_schema);
+//console.log(schemaAluno);
+
 let Model = mongoose.model('Aluno', schemaAluno);
+
+export default Model;
 
 /* 
 let model = new Model({nome:'Dayves'});
@@ -28,4 +30,3 @@ model.save((err, data) => {
 */
 
 
-console.log(schemaAluno);

@@ -5,6 +5,7 @@ var express 	= require('express'),
 
 app.use(express.static('./client'));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
 
 
 consign({cwd: 'backend'})
