@@ -42,12 +42,12 @@ let apiLivros = {
                     (error) => res.status(500).json(error));
     },
     
-    buscarEmprestimos: (req, res)=>{
+    buscarEmprestimos: (_exists)=>{
         console.log('################ aluguel #######################');
-        model.find({ 'aluguel': {$exists:false} })
-             .then( (data)=> res.json(data),
+        return model.find({ 'aluguel': {$exists: _exists } })
+             /* .then( (data)=> res.json(data),
                     (error) => res.status(500).json(error)
-             );
+             ) */;
     }
 };
 

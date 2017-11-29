@@ -16,6 +16,32 @@ module.exports = (app) => {
         .delete(api.removePorId)
         .put(api.atualiza);
     
-     app.get(`${url_api}/emprestimos`, api.buscarEmprestimos);
+     app.get(`${url_api}/emprestimos`, function(req, res) {
+        console.log('emprestimos')
+        
+        let promise = retornarEmprestimos();
+        promise
+            .then(retornarEndereco)
+            .then((dados) => { 
+                console.log('Promise 1', dados); 
+                return res.send(dados) })
+            .catch(function(err){
+                return res.send({messages: 'Ops, ocorreu um erro'}) 
+                //Este código será executado logo após o erro
+                console.log('Ops, ocorreu um erro');
+            });
+         
+     });
+
+    function retornarEmprestimos(){
+        console.log('buscarEmprestimos 1 ');
+        return api.buscarEmprestimos(true);
+    }
+
+     function retornarEndereco(dados) {
+        console.log('buscarEmprestimos 2 ');
+        console.log('Promise 1', dados );
+        return api.buscarEmprestimos(false);
+    }
     
 };
