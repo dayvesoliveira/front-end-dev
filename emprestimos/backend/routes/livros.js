@@ -19,13 +19,17 @@ module.exports = (app) => {
     
     // @see http://localhost:3000/api/livros/emprestimos 
     app.get(`${url_api}/emprestimos`, function(req, res) {
-        console.log('emprestimos')
+        console.log('emprestimos');
+
+        const { method, url } = req;
         
+        console.log(method, url);
+
         let promise = retornarEmprestimos();
         promise
             .then(retornarEndereco)
             .then((dados) => { 
-                console.log('Promise 2', dados); 
+                //console.log('Promise 2', dados); 
                 return res.send(dados) })
             .catch(function(err){
                 return res.send({messages: 'Ops, ocorreu um erro'}) 
@@ -33,16 +37,16 @@ module.exports = (app) => {
                 console.log('Ops, ocorreu um erro');
             });
          
-     });
+    });
 
-    function retornarEmprestimos(){
+    let retornarEmprestimos = () =>{
         console.log('buscarEmprestimos 1 ');
         return api.buscarEmprestimos(true);
     }
 
-     function retornarEndereco(dados) {
+    let retornarEndereco = (dados) => {
         console.log('buscarEmprestimos 2 ');
-        console.log('Promise 1', dados );
+        //console.log('Promise 1', dados );
         return api.buscarEmprestimos(false);
     }
     
