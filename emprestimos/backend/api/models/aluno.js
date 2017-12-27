@@ -15,18 +15,4 @@ const schemaAluno = new mongoose.Schema({
   "created_at": { type: Date, default: Date.now }
 });
 
-//console.log(schemaAluno);
-
-let Model = mongoose.model('Aluno', schemaAluno);
-
-export default Model;
-
-/* 
-let model = new Model({nome:'Dayves'});
-model.save((err, data) => {
-  return ((err) ? console.log('ERRO: ', err) : console.log('Inseriu: ', data))
-}); 
-
-*/
-
-
+export default mongoose.model('Aluno', schemaAluno);

@@ -9,7 +9,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 
 consign({cwd: 'backend'})
-	.include('models')	
+	.include('models')
+	.include('daos')
+	.include('services')
 	.then('api')
 	.then('routes')
 	.into( app );

@@ -1,5 +1,5 @@
-let mongoose = require('mongoose');
-let model    = mongoose.model('Livro');
+//let mongoose = require('mongoose');
+//let model    = mongoose.model('Livro');
 
 let apiLivros = {
 
@@ -9,15 +9,15 @@ let apiLivros = {
      */
     
     //@see http://localhost:3000/api/livros
-    lista: (req, res) => {
+    /* lista: (req, res) => {
         model.find()
              .then((data)=> res.json(data),
                    (error) => res.status(500).json(error)
                   );
-    },
+    }, */
     
     // @see http://localhost:3000/api/livros/5a161890c79c93250cc56f9d
-    buscaPorId: (req, res) => {
+    /* buscaPorId: (req, res) => {
         model.findById(req.params.id)
              .then((data)=> res.json(data),
                    (error) => res.status(500).json(error)
@@ -44,11 +44,8 @@ let apiLivros = {
     
     buscarEmprestimos: (_exists)=>{
         console.log('################ aluguel #######################');
-        return model.find({ 'aluguel': {$exists: _exists } })
-             /* .then( (data)=> res.json(data),
-                    (error) => res.status(500).json(error)
-             ) */;
-    }
+        return model.find({ 'aluguel': {$exists: _exists } });
+    } */
 };
 
 

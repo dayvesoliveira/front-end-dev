@@ -1,5 +1,5 @@
 let mongoose = require('mongoose');
-let model    = mongoose.model('Aluno');
+//let model    = mongoose.model('Aluno');
 let api      = {};
 
 
@@ -9,28 +9,28 @@ let api      = {};
  */
 
 //@see http://localhost:3000/api/alunos
-api.lista = (req, res) => {
+/* api.lista = (req, res) => {
     model.find()
          .then((data)=> res.json(data),
                (error) => res.status(500).json(error)
               );
-};
+}; */
 
 // @see http://localhost:3000/api/alunos/5a161890c79c93250cc56f9d
-api.buscaPorId = (req, res) => {
+/* api.buscaPorId = (req, res) => {
     model.findById(req.params.id)
          .then((data)=> res.json(data),
                (error) => res.status(500).json(error)
               );
-};
+}; */
 
-api.removePorId = (req, res) =>{
+/* api.removePorId = (req, res) =>{
     model.remove({_id: req.params.id})
          .then(
             ()=> res.sendStatus(200),
             (error) => res.status(500).json(error)
         );
-};
+}; */
 
 api.adiciona = (req, res) =>{
 	// TODO IMPLEMENTAR

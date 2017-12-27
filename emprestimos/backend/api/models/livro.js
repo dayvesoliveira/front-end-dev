@@ -19,18 +19,4 @@ let schemaLivro = new mongoose.Schema({
     "created_at":   { type: Date,   default: Date.now }
 });
 
-const ModelLivro = mongoose.model('Livro', schemaLivro);
-
-//console.log(schemaLivro);
-
-export default ModelLivro;
-
-/*  
-
-let model = new Model({"titulo" : "O Principe", "autor" : "Nicolau Maquiavel" });
-model.save((err, data) => {
-  return ((err) ? console.log('ERRO: ', err) : console.log('Inseriu: ', data))
-});
-
-*/
-
+export default mongoose.model('Livro', schemaLivro);

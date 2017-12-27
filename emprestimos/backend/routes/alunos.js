@@ -1,8 +1,11 @@
 
+
+
+
 // testes: http://localhost:3000/api/alunos
 module.exports = (app) => {
 
-    var url_api = '/api/alunos',
+    /* var url_api = '/api/alunos',
         api     = app.api.alunos;
 
     app.route( url_api )
@@ -15,8 +18,6 @@ module.exports = (app) => {
     app.route(`${url_api}/:id`)
         .get(api.buscaPorId)
         .delete(api.removePorId)
-        .put(api.atualiza);
+        .put(api.atualiza); */
     
-/*      app.route(`${url_api}/:id/emprestimo`)
-        .put(api.updateEmprestimo); */
 };
