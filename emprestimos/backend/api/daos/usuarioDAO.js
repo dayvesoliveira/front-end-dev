@@ -1,10 +1,16 @@
-import mongoose from 'mongoose';
-import UsuarioModel from "./models/usuario";
+import bcrypt from 'bcrypt-nodejs';
+import UsuarioModel from '../models/usuario';
 
 export default class UsuarioDAO {
-
-    modelUsuario = mongoose.model('Usuario');
     
+    constructor(){
+        console.log('UsuarioDAO >>>> ', UsuarioModel);
+    }
+
+    findAll(){
+        return UsuarioModel.find();
+    }
+
     insert(usuario){
         
         let model = new UsuarioModel({
@@ -12,14 +18,15 @@ export default class UsuarioDAO {
             password: usuario.password
         });
 
-        return model.save( usuario , (err, data)=>{
+        return model.save((err, data)=>{
             if (err) return console.log('ERRO: ', err);
             console.log('Inseriu: ', data);
         });
     }
 
     update(usuario) {
-        return model.save( usuario , (err, data)=>{
+        let modelUsuario = new UsuarioModel( usuario );
+        return modelUsuario.save((err, data)=>{
             if (err) return console.log('ERRO: ', err);
             console.log('Inseriu: ', data);
         });

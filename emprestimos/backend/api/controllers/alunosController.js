@@ -1,4 +1,4 @@
-let mongoose = require('mongoose');
+//let mongoose = require('mongoose');
 //let model    = mongoose.model('Aluno');
 let api      = {};
 

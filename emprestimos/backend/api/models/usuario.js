@@ -1,22 +1,28 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcrypt-nodejs';
+import mongoose, { Schema } from 'mongoose';
 
-
-let schemaUsuario = new mongoose.Schema({
-    username: {
+let schemaUsuario = new Schema({
+    nome: {
       type: String,
       unique: true,
       required: true
     },
-    password: {
+    senha: {
       type: String,
       required: true
+    },
+    email: {
+      type: String,
+      required: false
     }
 });
 
+let UsuarioModel;
+try {
+    UsuarioModel = mongoose.model('Usuario', schemaUsuario);
+} catch(e){
+    UsuarioModel = mongoose.model('Usuario');
+}
 
-const UsuarioModel = mongoose.model('Usuario', schemaUsuario);
-
-console.log(schemaUsuario);
+console.log('usuarioModel >>> ', UsuarioModel); 
 
 export default UsuarioModel;

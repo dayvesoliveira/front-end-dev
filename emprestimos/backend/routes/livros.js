@@ -2,7 +2,7 @@
 // testes: http://localhost:3000/api/livros
 module.exports = (app) => {
 
-    var url_api = '/api/livros',
+    /* var url_api = '/api/livros',
         api     = app.api.livros;
 
     app.get(url_api, api.lista);
@@ -48,6 +48,6 @@ module.exports = (app) => {
         console.log('buscarEmprestimos 2 ');
         //console.log('Promise 1', dados );
         return api.buscarEmprestimos(false);
-    }
+    } */
     
 };

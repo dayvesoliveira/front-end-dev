@@ -3,12 +3,12 @@
  * @see https://be-mean.gitbooks.io/be-mean-node-js/content/mongoose.html
  *      http://nomadev.com.br/mongodb-remodelagem-do-relacional-para-o-mongodb/
  */
-import mongoose from 'mongoose';
+import mongoose,{ Schema } from 'mongoose';
 
 /**
  * Livro schema
  */
-let schemaLivro = new mongoose.Schema({ 
+let schemaLivro = new Schema({ 
     "titulo" :      { type: String, require: true}, 
     "autor" :       { type: String, require: false },
     "aluguel":  {
@@ -19,5 +19,4 @@ let schemaLivro = new mongoose.Schema({
     "created_at":   { type: Date,   default: Date.now }
 });
 
-
-export default mongoose.model('Livro', schemaLivro);
+export default mongoose.model('livro', schemaLivro);

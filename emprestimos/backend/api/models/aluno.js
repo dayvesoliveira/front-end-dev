@@ -4,15 +4,15 @@
  *      http://nomadev.com.br/mongodb-remodelagem-do-relacional-para-o-mongodb/
  * 
  */
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 /**
  * Aluno schema
  */
-const schemaAluno = new mongoose.Schema({ 
+const schemaAluno = new Schema({ 
   "nome" :      { type: String, require: true}, 
   "sobrenome" : { type: String, require: false },
   "created_at": { type: Date, default: Date.now }
 });
 
-export default mongoose.model('Aluno', schemaAluno);
+export default mongoose.model('aluno', schemaAluno);

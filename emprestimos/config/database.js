@@ -3,7 +3,7 @@ var mongodb = function(uri) {
     var mongoose = require('mongoose');
 
     mongoose.connect('mongodb://' + uri,{
-        useMongoClient: true,
+        useMongoClient: true
         /* other options */
     });
 

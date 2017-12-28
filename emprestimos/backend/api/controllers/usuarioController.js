@@ -1,12 +1,20 @@
-import mongoose from 'mongoose';
-
-let model = mongoose.model('Livro');
-
+import UsuarioService from "../services/usuarioService";
 
 export default class UsuarioController {
 
-    save(req, res){
-        console.log('save');
+    pesquisar(req, res){
+        try {
+            var service = new UsuarioService();
+            console.log('save', service.searchFull );
+
+            searchFull.searchFull()
+            .then(  (data)  => res.json(data),
+                    (error) => res.status(500).json(error)
+                );
+
+        } catch(e){
+            throw new Error(e);
+        }
     }
 
 }
