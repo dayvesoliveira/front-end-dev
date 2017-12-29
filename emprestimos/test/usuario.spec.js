@@ -9,8 +9,10 @@ var should = chai.should();
 
 chai.use(chaiHttp);
 
+// https://code4coders.wordpress.com/2016/10/21/tutorial-testando-aplicacoes-restful-api-em-node-js-com-mocha-chai/
 
 //Aqui é o bloco principal que executará o nossos testes:
+
 /* describe('Usuarios', function() {
   beforeEach(function(done) {
 
