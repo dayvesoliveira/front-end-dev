@@ -1,11 +1,22 @@
-var express 	= require('express'),
+/* var express 	= require('express'),
 	consign 	= require('consign'),
 	bodyParser 	= require('body-parser'),
-	app 		= express();
+	app 		= express(); 
+*/
+
+import express from 'express';
+import consign from 'consign';
+import bodyParser from 'body-parser';
+
+import userRouter from '../backend/routes/usuarios';
+
+const app = express();
 
 app.use(express.static('./client'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.use('/api', userRouter);
 
 
 consign({cwd: 'backend'})
@@ -13,4 +24,4 @@ consign({cwd: 'backend'})
 	.then('routes')
 	.into( app );
 
-module.exports = app;
+export default app;

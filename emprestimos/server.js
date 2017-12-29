@@ -1,12 +1,25 @@
-var http        = require('http'),
+/* var http        = require('http'),
     bodyParser  = require('body-parser'),
     app         = require('./config/express'),
     session     = require('express-session'),
     jwt         = require('jwt-simple'),
-    helmet      = require('helmet');
+    helmet      = require('helmet'); 
 
+    require('./config/database')('localhost/emprestimos'); 
+*/
+import http from 'http';
+import bodyParser from 'body-parser';
+import session from 'express-session';
+import jwt from 'jwt-simple';
+import helmet from 'helmet';
+
+import app from './config/express';
+import ConnectionMongoDb from './config/database';
+
+// console.log(connection);
 // conexao com o banco
-require('./config/database')('localhost/emprestimos'); 
+let conn = new ConnectionMongoDb('localhost/emprestimos');
+conn.start();
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -58,8 +71,6 @@ app.use( session({
     saveUninitialized: true
    })
  );
-
-
 
 
 // Assegure que suas dependências sejam seguras

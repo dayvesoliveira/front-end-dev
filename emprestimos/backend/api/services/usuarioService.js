@@ -3,15 +3,19 @@ import UsuarioDAO from "../daos/usuarioDAO";
 
 export default class UsuarioService {
 
-    save(usuario){
-        let usuarioDAO = new UsuarioDAO();
-        console.log(usuarioDAO);
-        usuarioDAO.save(usuario);
+    constructor(){
+        this.usuarioDAO = new UsuarioDAO();
     }
 
-    searchFull() {
-        let usuarioDAO = new UsuarioDAO();
-        console.log(usuarioDAO);
-        return usuarioDAO.findAll();
+    findAll() {
+        return this.usuarioDAO.findAll();
+    }
+
+    insert(usuario){
+        return this.usuarioDAO.insert(usuario);
+    }
+
+    update(usuario){
+        return this.usuarioDAO.update(usuario);
     }
 }
