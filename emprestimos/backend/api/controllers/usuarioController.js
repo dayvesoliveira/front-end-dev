@@ -17,7 +17,7 @@ export default class UsuarioController {
             throw new Error("Não foi possível realizar a consulta");
         }
     }
-
+    
     incluir(req, res) {
         let service = new UsuarioService();
         service.insert( this._getJson(req) ).then(

@@ -1,7 +1,6 @@
 import { Router } from 'express';
 import UsuarioController from '../api/controllers/usuarioController';
 
-
 const UserRouter = Router();
 const usuarioController = new UsuarioController();
 

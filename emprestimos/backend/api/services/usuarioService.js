@@ -2,7 +2,7 @@ import UsuarioDAO from "../daos/usuarioDAO";
 
 
 export default class UsuarioService {
-
+    
     constructor(){
         this.usuarioDAO = new UsuarioDAO();
     }

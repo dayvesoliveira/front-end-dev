@@ -1,11 +1,11 @@
 import UsuarioModel from '../models/usuario';
 
 export default class UsuarioDAO {
-    
+
     constructor(){
        // console.log('UsuarioDAO >>>> ', UsuarioModel);
     }
-
+    
     findAll(){
         return UsuarioModel.find();
     }
