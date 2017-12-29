@@ -2,6 +2,14 @@ import UsuarioService from "../services/usuarioService";
 
 const service = new UsuarioService();
 
+let getJson = (req)=> {
+    return (req && req.body ? 
+    {   "nome": req.body.nome, 
+        "senha": req.body.senha, 
+        "email": req.body.email 
+    } : {});
+};
+
 export default class UsuarioController {
     
     pesquisar(req, res){
@@ -16,24 +24,17 @@ export default class UsuarioController {
     }
 
     incluir(req, res) {
-        service.insert( this._getJson(req) ).then(
+        service.insert( getJson(req) ).then(
                 (data)  => res.json(data),
                 (error) => res.status(500).json(error)
             );
     }
 
     update(req, res) {
-        service.update( this._getJson(req) ).then(
+        service.update( getJson(req) ).then(
                 (data)  => res.json(data),
                 (error) => res.status(500).json(error)
             );
     }
 
-    static _getJson(req){
-        return (req && req.body ? 
-        {   "nome": req.body.nome, 
-            "senha": req.body.senha, 
-            "email": req.body.email 
-        } : {});
-    }
 }

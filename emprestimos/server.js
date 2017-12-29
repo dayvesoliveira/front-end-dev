@@ -100,6 +100,8 @@ app.use( session({
    @see https://blog.risingstack.com/node-js-security-checklist/
 */
 
-http.createServer(app).listen(3000, function() { 
+let server = http.createServer(app).listen(3000, function() { 
     console.log(`Started on port http://localhost:${this.address().port}/api`); 
 });
+
+export default server;

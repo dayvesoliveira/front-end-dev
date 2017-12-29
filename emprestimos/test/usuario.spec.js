@@ -1,10 +1,10 @@
-var mongoose = require('mongoose');
-var Usuario = require('../backend/api/models/usuario');
- 
-//Aqui estamos declarando as dependências necessárias para realizar os nossos testes!
-var chai = require('chai');
-var chaiHttp = require('chai-http');
-var server = require('../server');
+import mongoose  from 'mongoose';
+import chai from 'chai';
+import chaiHttp from 'chai-http';
+
+import server from '../server';
+import Usuario from '../backend/api/models/usuario';
+
 var should = chai.should();
 
 chai.use(chaiHttp);
@@ -21,9 +21,7 @@ chai.use(chaiHttp);
   });
 }); */
 
-
-
-  /**
+/**
  * Teste da rota: /GET
  */
 describe('/GET usuarios', function() {
@@ -31,9 +29,10 @@ describe('/GET usuarios', function() {
       chai.request(server)
             .get('/api/usuarios')
             .end(function(error, res) {
+                console.log(res.body)
                 //Se tudo der certo deve retornar o status: 200 - OK
                 res.should.have.status(200);
-                //E em seguida retornar em um array todos os livros cadastrados na base de dados:
+                //E em seguida retornar em um array todos de usuarios cadastrados na base de dados:
                 res.body.should.be.a('array');
                 res.body.length.should.be.eql(0);
                 done();
@@ -43,18 +42,21 @@ describe('/GET usuarios', function() {
 });
 
 
-describe('/POST livro', function() {
-    it('Não deve retornar o POST do usuario criado, uma vez que não foi definido o campo: senha', function(done) {
+describe('/POST Usuarios', function() {
+
+    it('Não deve retornar o POST do usuario criado, uma vez que não foi definido o campo senha', function(done) {
  
         var usuario = {
             senha: "",
             nome: "David Flanagan",
+            email:""
         };
 
         chai.request(server)
             .post('/api/usuarios')
             .send(usuario)
             .end(function(error, res) {
+                console.log(res.body)
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('errors');
@@ -66,7 +68,7 @@ describe('/POST livro', function() {
  
     it('Deve Criar um Usuario', function(done) {
         var usuario = {
-            senha: "123",
+            senha: "123456",
             autor: "David Flanagan"
         };
 
@@ -74,7 +76,7 @@ describe('/POST livro', function() {
             .post('/api/usuarios')
             .send(usuario)
             .end(function(error, res) {
-                console.log('error');
+                console.log(res.body)
                 res.should.have.status(200);
                 res.body.should.be.a('object');
                 res.body.should.have.property('message').eql('Usuario adicionado com Sucesso!');
