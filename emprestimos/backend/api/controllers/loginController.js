@@ -48,7 +48,7 @@ export default class LoginController {
                     res.status(400).json({error: 'Acesso Expirado, faça login novamente'});
                 }
                 
-                model.findOne({ _id: decoded.iss }, function(err, user) {
+                UsuarioModel.findOne({ _id: decoded.iss }, function(err, user) {
                     if(err) res.status(500).json({message: "erro ao procurar usuario do token."})
                     req.user = user;
                     console.log('achei usuario ' + req.user)
