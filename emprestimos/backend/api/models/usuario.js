@@ -35,10 +35,10 @@ UsuarioSchema.pre('save', function(next) {
 });
 
 
-UsuarioSchema.methods.verificaSenha = (password, next) => {
-    bcrypt.compare(password, this.password, (err, isMatch) => {
-        if (err) return next(err);
-        next(isMatch);
+UsuarioSchema.methods.verificaSenha = function(password, next) {
+    bcrypt.compare(password, this.password, function(err, isMatch) {
+      if (err) return next(err);
+      next(isMatch);
     });
 };
 

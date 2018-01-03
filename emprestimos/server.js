@@ -1,24 +1,17 @@
-/* var http        = require('http'),
-    bodyParser  = require('body-parser'),
-    app         = require('./config/express'),
-    session     = require('express-session'),
-    jwt         = require('jwt-simple'),
-    helmet      = require('helmet'); 
-
-    require('./config/database')('localhost/emprestimos'); 
-*/
 import http from 'http';
 import bodyParser from 'body-parser';
 import session from 'express-session';
 import jwt from 'jwt-simple';
+import morgan from 'morgan';
 import helmet from 'helmet';
 
+import properties from './config/properties';
 import app from './config/express';
 import ConnectionMongoDb from './config/database';
 
 // console.log(connection);
 // conexao com o banco
-let conn = new ConnectionMongoDb('localhost/emprestimos');
+let conn = new ConnectionMongoDb(properties.database);
 conn.start();
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -38,6 +31,9 @@ app.disable('x-powered-by');
 // $ npm install --save helmet
 
 app.use(helmet());
+
+app.use(morgan('dev'));
+app.set('superNode-auth', properties.configName); //variável que criamos no arquivo 'config'
 
 
 // Configure as opções de segurança de cookie

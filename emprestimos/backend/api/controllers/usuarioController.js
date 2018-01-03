@@ -4,7 +4,7 @@ const service = new UsuarioService();
 
 let getJson = (req)=> {
     return (req && req.body ? 
-    {   "nome": req.body.nome, 
+    {   "nome": req.body.usuario, 
         "senha": req.body.senha, 
         "email": req.body.email 
     } : {});

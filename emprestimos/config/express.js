@@ -9,6 +9,7 @@ import consign from 'consign';
 import bodyParser from 'body-parser';
 
 import userRouter from '../backend/routes/usuarios';
+import loginRouter from '../backend/routes/login';
 
 const app = express();
 
@@ -16,7 +17,8 @@ app.use(express.static('./client'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/api', userRouter);
+app.use('/api', userRouter)
+   .use('/api', loginRouter);
 
 
 consign({cwd: 'backend'})

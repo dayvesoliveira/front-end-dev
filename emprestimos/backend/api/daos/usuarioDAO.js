@@ -6,6 +6,10 @@ export default class UsuarioDAO {
        // console.log('UsuarioDAO >>>> ', UsuarioModel);
     }
     
+    find(usuario){
+        return UsuarioModel.findOne(usuario);
+    }
+
     findAll(){
         return UsuarioModel.find();
     }
@@ -16,14 +20,10 @@ export default class UsuarioDAO {
     }
 
     insert(usuario){
-        
         let model = new UsuarioModel({
             username: usuario.nome,
             password: usuario.senha
         });
-        
-        //console.log( 'usuario >>>>> ', model.isModified('password') );
-
         return model.save((err, data)=>{
             if (err) return console.log('ERRO: ', err);
             console.log('Inseriu: ', data);
@@ -37,5 +37,4 @@ export default class UsuarioDAO {
             console.log('Inseriu: ', data);
         });
     }
-
 }
