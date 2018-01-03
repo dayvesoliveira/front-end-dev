@@ -40,6 +40,7 @@ export default class LoginController {
         var token = (req.body && req.body.access_token) 
                      || (req.query && req.query.access_token) 
                      ||  req.headers['x-access-token'];
+        console.log(req.body, req.headers['x-access-token'])
         if (token) {
             try {
                 var decoded = jwt.decode(token, segredo);
