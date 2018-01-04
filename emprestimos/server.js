@@ -1,3 +1,8 @@
+/* import register from 'babel-register';
+register({
+  presets: [ 'es2015' ]
+}); */
+
 import http from 'http';
 import bodyParser from 'body-parser';
 import session from 'express-session';
@@ -68,6 +73,13 @@ app.use( session({
    })
  );
 
+ /*
+ O aplicativo NodeJS pode parar se algum erro acontecer. Com o código abaixo, prevenimos essa parada e registramos 
+ esse erro na linha de comando.
+*/
+process.on('uncaughtException', function(err) {
+  console.log('UncaughtException', err);
+});
 
 // Assegure que suas dependências sejam seguras
 // Usar o npm para gerenciar as dependências do aplicativo é poderoso e conveniente. 

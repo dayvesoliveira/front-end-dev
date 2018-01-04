@@ -4,6 +4,6 @@ import LoginController from '../api/controllers/loginController';
 const loginRouter = Router();
 const loginController = new LoginController();
 
-loginRouter.route( '/login' ).post(loginController.login);
+loginRouter.route( '/authenticate' ).post(loginController.login);
 
 export default loginRouter;

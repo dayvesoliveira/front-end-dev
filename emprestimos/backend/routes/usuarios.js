@@ -7,7 +7,7 @@ const usuarioController = new UsuarioController();
 const loginController = new LoginController();
 
 UserRouter.route( '/usuarios' )
-          .get(loginController.validarToken, usuarioController.pesquisar)
+          .get(/* loginController.validarToken, */ usuarioController.pesquisar)
           .post(usuarioController.incluir)
           .put(usuarioController.update);
 
