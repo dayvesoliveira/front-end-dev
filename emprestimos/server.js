@@ -1,8 +1,3 @@
-/* import register from 'babel-register';
-register({
-  presets: [ 'es2015' ]
-}); */
-
 import http from 'http';
 import bodyParser from 'body-parser';
 import session from 'express-session';

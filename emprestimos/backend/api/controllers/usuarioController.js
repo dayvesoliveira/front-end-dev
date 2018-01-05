@@ -13,10 +13,6 @@ let getJson = (req)=> {
 export default class UsuarioController {
     
     pesquisar(req, res){
-
-        var a =2;
-        a.x.y;
-
         try {
             service.findAll().then(  
                 (data)  => res.json(data),
